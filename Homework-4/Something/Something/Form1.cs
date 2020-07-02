@@ -21,7 +21,7 @@ namespace Something
         private void textBox1_Leave(object sender, EventArgs e)
         {
             n = Convert.ToInt32(textBox1.Text);
-            if(n >= 1000 || n<= 0)
+            if(n > 999 || n<= 0)
             {
                 label2.Text = "Notification : Vui lòng nhập số nguyên dương 0 < n < 1000";
                 label2.ForeColor = Color.Red;
@@ -34,10 +34,13 @@ namespace Something
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Helper hp = new Helper(n);
-            label3.Text = "Số nguyên tố nhỏ hơn n: " + hp.nguyenTo();
-            label4.Text = "Số chính phương nhỏ hơn n: " + hp.chinhPhuong();
-            label5.Text = "Số hoàn chỉnh nhỏ hơn n: " + hp.hoanChinh();
+            if (n <= 999 && n > 0)
+            {
+                Helper hp = new Helper(n);
+                label3.Text = "Số nguyên tố nhỏ hơn n: " + hp.nguyenTo();
+                label4.Text = "Số chính phương nhỏ hơn n: " + hp.chinhPhuong();
+                label5.Text = "Số hoàn chỉnh nhỏ hơn n: " + hp.hoanChinh();
+            }
 
         }
     }

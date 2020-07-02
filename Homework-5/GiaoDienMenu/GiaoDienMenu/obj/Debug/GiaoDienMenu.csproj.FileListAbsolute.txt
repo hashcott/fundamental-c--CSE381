@@ -1,0 +1,10 @@
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\bin\Debug\GiaoDienMenu.exe.config
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\bin\Debug\GiaoDienMenu.exe
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\bin\Debug\GiaoDienMenu.pdb
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.Form1.resources
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.Properties.Resources.resources
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.exe
+C:\Users\NguyenDucHanh\source\repos\GiaoDienMenu\GiaoDienMenu\obj\Debug\GiaoDienMenu.pdb

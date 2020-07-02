@@ -8,3 +8,13 @@ C:\Users\NguyenDucHanh\source\repos\Something\Something\obj\Debug\Something.cspr
 C:\Users\NguyenDucHanh\source\repos\Something\Something\obj\Debug\Something.csproj.CoreCompileInputs.cache
 C:\Users\NguyenDucHanh\source\repos\Something\Something\obj\Debug\Something.exe
 C:\Users\NguyenDucHanh\source\repos\Something\Something\obj\Debug\Something.pdb
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\bin\Debug\Something.exe.config
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\bin\Debug\Something.exe
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\bin\Debug\Something.pdb
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.Form1.resources
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.Properties.Resources.resources
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.exe
+C:\Users\NguyenDucHanh\Documents\fundamental-c--CSE381\Homework-4\Something\Something\obj\Debug\Something.pdb
