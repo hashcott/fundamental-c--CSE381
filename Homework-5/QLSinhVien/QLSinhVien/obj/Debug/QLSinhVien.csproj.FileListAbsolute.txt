@@ -1,0 +1,10 @@
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\bin\Debug\QLSinhVien.exe.config
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\bin\Debug\QLSinhVien.exe
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\bin\Debug\QLSinhVien.pdb
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.Form1.resources
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.Properties.Resources.resources
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.exe
+C:\Users\NguyenDucHanh\source\repos\QLSinhVien\QLSinhVien\obj\Debug\QLSinhVien.pdb
