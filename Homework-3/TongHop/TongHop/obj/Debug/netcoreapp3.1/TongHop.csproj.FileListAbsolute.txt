@@ -1,0 +1,13 @@
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\bin\Debug\netcoreapp3.1\TongHop.exe
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\bin\Debug\netcoreapp3.1\TongHop.deps.json
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\bin\Debug\netcoreapp3.1\TongHop.runtimeconfig.json
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\bin\Debug\netcoreapp3.1\TongHop.runtimeconfig.dev.json
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\bin\Debug\netcoreapp3.1\TongHop.dll
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\bin\Debug\netcoreapp3.1\TongHop.pdb
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.AssemblyInfoInputs.cache
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.AssemblyInfo.cs
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.dll
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.pdb
+C:\Users\NguyenDucHanh\source\repos\TongHop\TongHop\obj\Debug\netcoreapp3.1\TongHop.genruntimeconfig.cache

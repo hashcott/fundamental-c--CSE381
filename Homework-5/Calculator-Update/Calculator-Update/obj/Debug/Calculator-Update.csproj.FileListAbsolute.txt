@@ -1,0 +1,10 @@
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\bin\Debug\Calculator-Update.exe.config
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\bin\Debug\Calculator-Update.exe
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\bin\Debug\Calculator-Update.pdb
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator-Update.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator_Update.Form1.resources
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator_Update.Properties.Resources.resources
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator-Update.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator-Update.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator-Update.exe
+C:\Users\NguyenDucHanh\source\repos\Calculator-Update\Calculator-Update\obj\Debug\Calculator-Update.pdb

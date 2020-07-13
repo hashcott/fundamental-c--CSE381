@@ -1,0 +1,10 @@
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.Form1.resources
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.Properties.Resources.resources
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\bin\Debug\KhamRang.exe.config
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\bin\Debug\KhamRang.exe
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\bin\Debug\KhamRang.pdb
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.exe
+C:\Users\NguyenDucHanh\source\repos\KhamRang\KhamRang\obj\Debug\KhamRang.pdb
