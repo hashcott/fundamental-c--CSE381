@@ -1,0 +1,15 @@
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\bin\Debug\QuanLyNhanSu.exe.config
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\bin\Debug\QuanLyNhanSu.exe
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\bin\Debug\QuanLyNhanSu.pdb
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Properties.Resources.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.exe
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.pdb
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.Main.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.NhanSu.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.NghiepVu.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.CongTrinh.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.QLCT.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyNhanSu\QuanLyNhanSu\obj\Debug\QuanLyNhanSu.ChamCong.resources
