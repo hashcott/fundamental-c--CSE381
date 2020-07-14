@@ -38,6 +38,31 @@ namespace QuanLyNhanSu
 
         // Insert Nhân Sự
         private void buttonAdd_Click(object sender, EventArgs e)   {
+            // Validate input
+            foreach (Control i in Controls)
+            {
+                if (i is TextBox && i.Text.Length == 0)
+                {
+                    if (MessageBox.Show("Bạn phải nhập tất cả các trường", "Cảnh báo", MessageBoxButtons.OK) == DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+                if(i is TextBox && i.Name == "textBoxCMND")
+                { 
+                    if (MessageBox.Show("Chứng minh nhân dân bạn phải nhập bằng số", "Cảnh báo", MessageBoxButtons.OK) == DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+                //if (i is TextBox && i.Name == "textBoxCMND" && !int.TryParse(i.Text, out int n))
+                //{
+                //    if (MessageBox.Show("Chứng minh nhân dân bạn phải nhập bằng số", "Cảnh báo", MessageBoxButtons.OK) == DialogResult.OK)
+                //    {
+                //        return;
+                //    }
+                //}
+            }
             string gioiTinh = "";
             if(radioButtonNam.Checked)
             {
@@ -129,7 +154,11 @@ namespace QuanLyNhanSu
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            
+            string sqlEx = "delete from NhanSu where idNS='" + textBoxMa.Text + "'";
+            fnc.actionData(sqlEx);
+            string sqlNS = "select NS.idNS,NS.hoTen, NS.gioiTinh,NS.diaChi,NS.sdt,NS.email,NS.cmnd,NV.tenNV from NhanSu as NS inner join NghiepVu as NV on NV.idNV=NS.idNghiepVu";
+            fnc.loadData(dataGridView3, sqlNS);
+            clear();
         }
     }
 }

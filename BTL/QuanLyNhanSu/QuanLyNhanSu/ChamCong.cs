@@ -25,6 +25,12 @@ namespace QuanLyNhanSu
             string sqlLoadNV = "select * from NghiepVu";
             fnc.loadcombo(comboBoxNV, sqlLoadNV, "tenNV", "idNV");
             refresh();
+
+            string sqlLoadCTT = "select * from CongTrinh";
+            fnc.loadcombo(comboBoxCTT, sqlLoadCTT, "tenCT", "idCT");
+            textBoxMon.Text = DateTime.Today.Month.ToString();
+            textBoxYear.Text = DateTime.Today.Year.ToString();
+            refreshTT();
             buttonCC.Enabled = false;
             buttonDelete.Enabled = false;
             buttonCancel.Enabled = false;
@@ -42,7 +48,7 @@ namespace QuanLyNhanSu
 
         private void buttonCC_Click(object sender, EventArgs e)
         {
-            string sqlInsert = "insert into ChamCong values('" + textBoxMa.Text + "','" + dateTimePicker1.Value.Date + "','" + textBoxMaCT.Text + "')";
+            string sqlInsert = "insert into ChamCong values('" + textBoxMa.Text + "','" + dateTimePicker1.Value.Date + "','" + textBoxMaCT.Text + "','False')";
             fnc.actionData(sqlInsert);
             refresh();
             clear();
@@ -50,9 +56,9 @@ namespace QuanLyNhanSu
 
         private void refresh()
         {
-            string sqlLoadChuaCham = "select NS.idNS,NS.hoTen,NV.tenNV,CT.idCT,CT.tenCT from NhanSu as NS, NghiepVu as NV, CongTrinh as CT , CongTrinh_NhanSu as CT_NS where NS.idNS = CT_NS.idNS and CT.idCT = CT_NS.idCT and NV.idNV=NS.idNghiepVu and NS.idNS in (select idNS from CongTrinh_NhanSu where status='True') and NS.idNS not in (select idNS from ChamCong where day(ngayChamCong) = " + DateTime.Today.Day + " and month(ngayChamCong) = " + DateTime.Today.Month + ")";
+            string sqlLoadChuaCham = "select NS.idNS,NS.hoTen,NV.tenNV,CT.idCT,CT.tenCT from NhanSu as NS, NghiepVu as NV, CongTrinh as CT , CongTrinh_NhanSu as CT_NS where NS.idNS = CT_NS.idNS and CT.idCT = CT_NS.idCT and NV.idNV=NS.idNghiepVu and NS.idNS in (select idNS from CongTrinh_NhanSu where status='False') and NS.idNS not in (select idNS from ChamCong where day(ngayChamCong) = " + DateTime.Today.Day + " and month(ngayChamCong) = " + DateTime.Today.Month + ")";
             fnc.loadData(dataGridViewChuaChamCong, sqlLoadChuaCham);
-            string sqlLoadDaCham = "select NS.idNS,NS.hoTen,NV.tenNV,CT.idCT,CT.tenCT from NhanSu as NS, NghiepVu as NV, CongTrinh as CT , CongTrinh_NhanSu as CT_NS where NS.idNS = CT_NS.idNS and CT.idCT = CT_NS.idCT and NV.idNV=NS.idNghiepVu and NS.idNS in (select idNS from CongTrinh_NhanSu where status='True') and NS.idNS in (select idNS from ChamCong where day(ngayChamCong) = " + DateTime.Today.Day + " and month(ngayChamCong) = " + DateTime.Today.Month + ")";
+            string sqlLoadDaCham = "select NS.idNS,NS.hoTen,NV.tenNV,CT.idCT,CT.tenCT from NhanSu as NS, NghiepVu as NV, CongTrinh as CT , CongTrinh_NhanSu as CT_NS where NS.idNS = CT_NS.idNS and CT.idCT = CT_NS.idCT and NV.idNV=NS.idNghiepVu and NS.idNS in (select idNS from CongTrinh_NhanSu where status='False') and NS.idNS in (select idNS from ChamCong where day(ngayChamCong) = " + DateTime.Today.Day + " and month(ngayChamCong) = " + DateTime.Today.Month + ")";
             fnc.loadData(dataGridViewDaChamCong, sqlLoadDaCham);
         }
         private void clear()
@@ -86,6 +92,48 @@ namespace QuanLyNhanSu
             buttonCC.Enabled = false;
             buttonDelete.Enabled = false;
             buttonCancel.Enabled = false;
+        }
+
+        private void buttonSR_Click(object sender, EventArgs e)
+        {
+            refreshTT();
+        }
+        private void refreshTT()
+        {
+            string sqlLoadChuaTT = "select NhanSu.idNS, NhanSu.hoTen, JN.count_cc as soNgayLam from NhanSu,(select count(idNS) as count_cc,idNS from ChamCong where month(ngayChamCong) = '"+textBoxMon.Text+"' and year(ngayChamCong) = '"+textBoxYear.Text+"' and status='False' group by idNS) as JN where NhanSu.idNS = JN.idNS;";
+            fnc.loadData(dataGridViewChuaThanhToan, sqlLoadChuaTT);
+            string sqlLoadDaTT = "select NhanSu.idNS, NhanSu.hoTen, JN.count_cc as soNgayLam from NhanSu,(select count(idNS) as count_cc,idNS from ChamCong where month(ngayChamCong) = '" + textBoxMon.Text + "' and year(ngayChamCong) = '" + textBoxYear.Text + "' and status='True' group by idNS) as JN where NhanSu.idNS = JN.idNS;";
+            fnc.loadData(dataGridViewThanhToan, sqlLoadDaTT);
+        }
+
+        private void dataGridViewChuaThanhToan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dataGridViewChuaThanhToan.CurrentRow.Index;
+            textBoxTenTT.Text = dataGridViewChuaThanhToan.Rows[index].Cells[1].Value.ToString();
+            textBoxMaTT.Text = dataGridViewChuaThanhToan.Rows[index].Cells[0].Value.ToString();
+        }
+
+        private void buttonTT_Click(object sender, EventArgs e)
+        {
+            string sqlUpdate = "update ChamCong set status='True' where month(ngayChamCong) = '" + textBoxMon.Text + "' and year(ngayChamCong) = '" + textBoxYear.Text + "' and idNS='" + textBoxMaTT.Text + "'";
+            fnc.actionData(sqlUpdate);
+            refreshTT();
+        }
+
+        private void buttonChuaTT_Click(object sender, EventArgs e)
+        {
+            string sqlUpdate = "update ChamCong set status='False' where month(ngayChamCong) = '" + textBoxMon.Text + "' and year(ngayChamCong) = '" + textBoxYear.Text + "' and idNS='" + textBoxMaTT.Text + "'";
+            fnc.actionData(sqlUpdate);
+            refreshTT();
+            refresh();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string sqlLoadChuaCham = "select NS.idNS,NS.hoTen,NV.tenNV,CT.idCT,CT.tenCT from NhanSu as NS, NghiepVu as NV, CongTrinh as CT , CongTrinh_NhanSu as CT_NS where NS.idNS = CT_NS.idNS and CT.idCT = CT_NS.idCT and NV.idNV=NS.idNghiepVu and NS.idNS in (select idNS from CongTrinh_NhanSu where status='False') and NS.idNS not in (select idNS from ChamCong where day(ngayChamCong) = " + dateTimePicker1.Value.Day + " and month(ngayChamCong) = " + dateTimePicker1.Value.Month + ")";
+            fnc.loadData(dataGridViewChuaChamCong, sqlLoadChuaCham);
+            string sqlLoadDaCham = "select NS.idNS,NS.hoTen,NV.tenNV,CT.idCT,CT.tenCT from NhanSu as NS, NghiepVu as NV, CongTrinh as CT , CongTrinh_NhanSu as CT_NS where NS.idNS = CT_NS.idNS and CT.idCT = CT_NS.idCT and NV.idNV=NS.idNghiepVu and NS.idNS in (select idNS from CongTrinh_NhanSu where status='False') and NS.idNS in (select idNS from ChamCong where day(ngayChamCong) = " + dateTimePicker1.Value.Day + " and month(ngayChamCong) = " + dateTimePicker1.Value.Month + ")";
+            fnc.loadData(dataGridViewDaChamCong, sqlLoadDaCham);
         }
     }
 }

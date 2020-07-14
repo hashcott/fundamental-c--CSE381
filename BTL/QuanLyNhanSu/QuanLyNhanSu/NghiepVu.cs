@@ -34,6 +34,16 @@ namespace QuanLyNhanSu
 
         private void button1_Click(object sender, EventArgs e)
         {
+            foreach (Control i in Controls)
+            {
+                if (i is TextBox && i.Text.Length == 0)
+                {
+                    if (MessageBox.Show("Bạn phải nhập tất cả các trường", "Cảnh báo", MessageBoxButtons.OK) == DialogResult.OK)
+                    {
+                        return;
+                    }
+                }
+            }
             string sqlEx = "insert into NghiepVu values('"+textBoxMa.Text + "',N'" + textBoxTen.Text + "','" + Convert.ToInt32(textBoxMucLuong.Text) + "')";
             fnc.actionData(sqlEx);
             string sql = "select * from NghiepVu";

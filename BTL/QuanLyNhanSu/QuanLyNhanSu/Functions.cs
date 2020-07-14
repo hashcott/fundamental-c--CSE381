@@ -45,6 +45,7 @@ namespace QuanLyNhanSu
         }
         public void actionData(string sqlEx)
         {
+          
             SqlConnection cn = connect();
             SqlCommand data = new SqlCommand(sqlEx, cn);
             data.ExecuteNonQuery();
