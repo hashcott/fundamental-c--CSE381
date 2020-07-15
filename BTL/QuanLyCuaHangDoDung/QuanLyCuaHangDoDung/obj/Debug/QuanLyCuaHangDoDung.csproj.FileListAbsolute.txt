@@ -8,3 +8,8 @@ C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\bin\
 C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\bin\Debug\QuanLyCuaHangDoDung.pdb
 C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.exe
 C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.pdb
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.MainMaterial.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.ThongKe.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.DanhMuc.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.BanHang.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.SearchHD.resources

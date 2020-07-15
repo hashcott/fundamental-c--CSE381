@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,15 +10,15 @@ using System.Windows.Forms;
 
 namespace QuanLyCuaHangDoDung
 {
-    public partial class Main : Form
+    public partial class DanhMuc : Form
     {
         Functions fnc = new Functions();
-        public Main()
+        public DanhMuc()
         {
             InitializeComponent();
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void DanhMuc_Load(object sender, EventArgs e)
         {
             string sqlLDD = "select * from LoaiDoDung";
             fnc.loadData(dataGridViewLDD, sqlLDD);
@@ -31,7 +30,6 @@ namespace QuanLyCuaHangDoDung
             fnc.loadData(dataGridViewDD, sqlDD);
             string sqlKH = "select * from KhachHang";
             fnc.loadData(dataGridViewKhachHang, sqlKH);
-            refreshCB();
             // Loại đồ dùng
             textBoxMaLDD.Text = fnc.ReturnUniqueValue();
             buttonEditLDD.Enabled = false;
@@ -53,38 +51,33 @@ namespace QuanLyCuaHangDoDung
             buttonDeleKH.Enabled = false;
             buttonEditKH.Enabled = false;
 
-            // Hóa Đơn
-            textBoxMaHD.Text = fnc.ReturnUniqueValue();
-
-        }
-        private void refreshCB()
-        {
-            string sqlLoaiDD = "select * from LoaiDoDung";
-            string sqlNSX = "select * from NhaSanXuat";
-            string sqlCL = "select * from ChatLieu";
-            string sqlKH = "select * from KhachHang";
-            fnc.loadcombo(comboBoxLDD, sqlLoaiDD, "tenLDD", "idLDD");
-            fnc.loadcombo(comboBoxHDLDD, sqlLoaiDD, "tenLDD", "idLDD");
+          
+            fnc.loadcombo(comboBoxLDD, sqlLDD, "tenLDD", "idLDD");
 
             fnc.loadcombo(comboBoxNSX, sqlNSX, "tenNSX", "idNSX");
-            fnc.loadcombo(comboBoxHDNSX, sqlNSX, "tenNSX", "idNSX");
 
             fnc.loadcombo(comboBoxCL, sqlCL, "tenCL", "idCL");
-            fnc.loadcombo(comboBoxHDCL, sqlCL, "tenCL", "idCL");
-
-            fnc.loadcombo(comboBoxKH, sqlKH, "tenKH", "idKH");
-            fnc.loadcombo(comboBoxSearchByKH, sqlKH, "tenKH", "idKH");
 
         }
         // Loại đồ dùng
         private void buttonAddLDD_Click(object sender, EventArgs e)
         {
+            if(textBoxTenLDD.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên loại đồ dùng !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn thêm "+ textBoxTenLDD.Text + " ?", "Thêm", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "insert into LoaiDoDung values('" + textBoxMaLDD.Text + "',N'" + textBoxTenLDD.Text + "')";
             fnc.actionData(sql);
             string sqlLoaiDD = "select * from LoaiDoDung";
             fnc.loadData(dataGridViewLDD, sqlLoaiDD);
+            fnc.loadcombo(comboBoxLDD, sqlLoaiDD, "tenLDD", "idLDD");
             clearLDD();
-            refreshCB();
         }
 
         private void dataGridViewLoaiDD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -100,31 +93,62 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonEditLDD_Click(object sender, EventArgs e)
         {
+            if (textBoxTenLDD.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên loại đồ dùng !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn sửa " + textBoxTenLDD.Text + " ?", "Sửa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "update LoaiDoDung set tenLDD = N'" + textBoxTenLDD.Text + "' where idLDD = '" + textBoxMaLDD.Text + "'";
             fnc.actionData(sql);
             string sqlLoaiDD = "select * from LoaiDoDung";
             fnc.loadData(dataGridViewLDD, sqlLoaiDD);
+            fnc.loadcombo(comboBoxLDD, sqlLoaiDD, "tenLDD", "idLDD");
             textBoxMaLDD.Enabled = true;
             buttonEditLDD.Enabled = false;
             buttonDeleLDD.Enabled = false;
             buttonAddLDD.Enabled = true;
-            refreshCB();
             clearLDD();
         }
 
         private void buttonDeleLDD_Click(object sender, EventArgs e)
         {
+           
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn xóa " + textBoxTenLDD.Text + " ?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+            if (!fnc.checkDelete("select * from LoaiDoDung inner join DoDung on '"+textBoxMaLDD.Text+"' = DoDung.idLDD"))
+            {
+                MessageBox.Show("Bạn không thể xóa dữ liệu được liên kết với bảng khác !!!");
+                return;
+            }
             string sql = "delete from LoaiDoDung where idLDD = '" + textBoxMaLDD.Text + "'";
             fnc.actionData(sql);
             string sqlLoaiDD = "select * from LoaiDoDung";
             fnc.loadData(dataGridViewLDD, sqlLoaiDD);
+            fnc.loadcombo(comboBoxLDD, sqlLoaiDD, "tenLDD", "idLDD");
+
             textBoxMaLDD.Enabled = true;
             buttonEditLDD.Enabled = false;
             buttonDeleLDD.Enabled = false;
             buttonAddLDD.Enabled = true;
-            refreshCB();
             clearLDD();
             textBoxMaLDD.Enabled = true;
+        }
+
+        private void buttonCancelLDD_Click(object sender, EventArgs e)
+        {
+            buttonEditLDD.Enabled = false;
+            buttonDeleLDD.Enabled = false;
+            buttonAddLDD.Enabled = true;
+            textBoxMaLDD.Text = fnc.ReturnUniqueValue();
+            textBoxTenLDD.Text = "";
         }
         private void clearLDD()
         {
@@ -134,23 +158,43 @@ namespace QuanLyCuaHangDoDung
         // NSX
         private void buttonAddNSX_Click(object sender, EventArgs e)
         {
+            if (textBoxTenNSX.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên nhà xuất bản !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn sửa " + textBoxTenNSX.Text + " ?", "Thêm", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "insert into NhaSanXuat values('" + textBoxMaNSX.Text + "',N'" + textBoxTenNSX.Text + "')";
             fnc.actionData(sql);
             string sqlNSX = "select * from NhaSanXuat";
             fnc.loadData(dataGridViewNSX, sqlNSX);
+            fnc.loadcombo(comboBoxNSX, sqlNSX, "tenNSX", "idNSX");
             clearNSX();
-            refreshCB();
         }
 
         private void buttonEditNSX_Click(object sender, EventArgs e)
         {
+            if (textBoxTenNSX.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên nhà xuất bản !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn sửa " + textBoxTenNSX.Text + " ?", "Sửa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "update NhaSanXuat set tenNSX = N'" + textBoxTenNSX.Text + "'where idNSX = '" + textBoxMaNSX.Text + "'";
             fnc.actionData(sql);
             string sqlNSX = "select * from NhaSanXuat";
             fnc.loadData(dataGridViewNSX, sqlNSX);
+            fnc.loadcombo(comboBoxNSX, sqlNSX, "tenNSX", "idNSX");
+
             clearNSX();
-            refreshCB();
-            textBoxMaNSX.Enabled = true;
             buttonAddNSX.Enabled = true;
             buttonEditNSX.Enabled = false;
             buttonDeleNSX.Enabled = false;
@@ -161,7 +205,6 @@ namespace QuanLyCuaHangDoDung
             int index = dataGridViewNSX.CurrentRow.Index;
             textBoxMaNSX.Text = dataGridViewNSX.Rows[index].Cells[0].Value.ToString();
             textBoxTenNSX.Text = dataGridViewNSX.Rows[index].Cells[1].Value.ToString();
-            textBoxMaNSX.Enabled = false;
             buttonAddNSX.Enabled = false;
             buttonEditNSX.Enabled = true;
             buttonDeleNSX.Enabled = true;
@@ -169,13 +212,31 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonDeleNSX_Click(object sender, EventArgs e)
         {
+
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn xóa " + textBoxTenNSX.Text + " ?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+            if (!fnc.checkDelete("select * from NhaSanXuat inner join DoDung on '" + textBoxMaNSX.Text + "' = DoDung.idNSX"))
+            {
+                MessageBox.Show("Bạn không thể xóa dữ liệu được liên kết với bảng khác !!!");
+                return;
+            }
             string sql = "delete from NhaSanXuat where idNSX = '" + textBoxMaNSX.Text + "'";
             fnc.actionData(sql);
             string sqlNSX = "select * from NhaSanXuat";
             fnc.loadData(dataGridViewNSX, sqlNSX);
+            fnc.loadcombo(comboBoxNSX, sqlNSX, "tenNSX", "idNSX");
+
             clearNSX();
-            refreshCB();
-            textBoxMaNSX.Enabled = true;
+            buttonAddNSX.Enabled = true;
+            buttonEditNSX.Enabled = false;
+            buttonDeleNSX.Enabled = false;
+        }
+        private void buttonCancelNSX_Click(object sender, EventArgs e)
+        {
+            clearNSX();
             buttonAddNSX.Enabled = true;
             buttonEditNSX.Enabled = false;
             buttonDeleNSX.Enabled = false;
@@ -189,26 +250,47 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonAddCL_Click(object sender, EventArgs e)
         {
+            if (textBoxTenCL.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên CHẤT LIỆU !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn thêm " + textBoxTenCL.Text + " ?", "Thêm", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "insert into ChatLieu values('" + textBoxMaCL.Text + "',N'" + textBoxTenCL.Text + "')";
             fnc.actionData(sql);
             string sqlCL = "select * from ChatLieu";
             fnc.loadData(dataGridViewCL, sqlCL);
-            refreshCB();
+            fnc.loadcombo(comboBoxCL, sqlCL, "tenCL", "idCL");
+
             clearCL();
 
         }
 
         private void buttonEditCL_Click(object sender, EventArgs e)
         {
+            if (textBoxTenCL.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên CHẤT LIỆU !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn sửa " + textBoxTenCL.Text + " ?", "Sửa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "update ChatLieu set tenCL = N'" + textBoxTenCL.Text + "' where idCL = '" + textBoxMaCL.Text + "'";
             fnc.actionData(sql);
             string sqlCL = "select * from ChatLieu";
             fnc.loadData(dataGridViewCL, sqlCL);
-            textBoxMaCL.Enabled = true;
+            fnc.loadcombo(comboBoxCL, sqlCL, "tenCL", "idCL");
+
             buttonAddCL.Enabled = true;
             buttonEditCL.Enabled = false;
             buttonDeleCL.Enabled = false;
-            refreshCB();
             clearCL();
         }
 
@@ -217,7 +299,6 @@ namespace QuanLyCuaHangDoDung
             int index = dataGridViewCL.CurrentRow.Index;
             textBoxMaCL.Text = dataGridViewCL.Rows[index].Cells[0].Value.ToString();
             textBoxTenCL.Text = dataGridViewCL.Rows[index].Cells[1].Value.ToString();
-            textBoxMaNSX.Enabled = false;
             buttonAddCL.Enabled = false;
             buttonEditCL.Enabled = true;
             buttonDeleCL.Enabled = true;
@@ -225,16 +306,34 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonDeleCL_Click(object sender, EventArgs e)
         {
+        
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn xóa " + textBoxTenCL.Text + " ?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+            if(!fnc.checkDelete("select * from ChatLieu inner join DoDung on '" + textBoxMaCL.Text + "' = DoDung.idCL"))
+            {
+                MessageBox.Show("Bạn không thể xóa dữ liệu được liên kết với bảng khác !!!");
+                return;
+            }
             string sql = "delete from ChatLieu where idCL = '" + textBoxMaCL.Text + "'";
             fnc.actionData(sql);
             string sqlCL = "select * from ChatLieu";
             fnc.loadData(dataGridViewCL, sqlCL);
-            textBoxMaCL.Enabled = true;
+            fnc.loadcombo(comboBoxCL, sqlCL, "tenCL", "idCL");
+
             buttonAddCL.Enabled = true;
             buttonEditCL.Enabled = false;
             buttonDeleCL.Enabled = false;
-            refreshCB();
             clearCL();
+        }
+        private void buttonCancelCL_Click(object sender, EventArgs e)
+        {
+            clearCL();
+            buttonAddCL.Enabled = true;
+            buttonEditCL.Enabled = false;
+            buttonDeleCL.Enabled = false;
         }
 
         private void clearCL()
@@ -245,6 +344,23 @@ namespace QuanLyCuaHangDoDung
         // Đồ Dùng
         private void buttonAddDD_Click(object sender, EventArgs e)
         {
+            if (textBoxTenDD.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập TÊN CHẤT LIỆU !!!");
+                return;
+            }
+            int Result;
+            bool isSuccess = int.TryParse(textBoxDonGia.Text, out Result);
+            if (isSuccess != true)
+            {
+                MessageBox.Show("Bạn phải nhập tên Đơn Gía BẰNG SỐ !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn thêm " + textBoxTenDD.Text + " ?", "Thêm", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "insert into DoDung values('" + textBoxMaDD.Text + "',N'" + textBoxTenDD.Text + "','" + numericUpDownSL.Value + "','" + textBoxDonGia.Text + "','" + comboBoxLDD.SelectedValue + "','" + comboBoxNSX.SelectedValue + "','" + comboBoxCL.SelectedValue + "')";
             fnc.actionData(sql);
             string sqlDD = "select * from DoDung";
@@ -259,10 +375,9 @@ namespace QuanLyCuaHangDoDung
             textBoxTenDD.Text = dataGridViewDD.Rows[index].Cells[1].Value.ToString();
             numericUpDownSL.Text = dataGridViewDD.Rows[index].Cells[2].Value.ToString();
             textBoxDonGia.Text = dataGridViewDD.Rows[index].Cells[3].Value.ToString();
-            comboBoxLDD.SelectedIndex = comboBoxLDD.FindString(dataGridViewDD.Rows[index].Cells[4].Value.ToString());
-            comboBoxNSX.SelectedIndex = comboBoxNSX.FindString(dataGridViewDD.Rows[index].Cells[4].Value.ToString());
-            comboBoxCL.SelectedIndex = comboBoxCL.FindString(dataGridViewDD.Rows[index].Cells[4].Value.ToString());
-            textBoxMaDD.Enabled = false;
+            comboBoxLDD.SelectedValue = dataGridViewDD.Rows[index].Cells[4].Value.ToString();
+            comboBoxNSX.SelectedValue = dataGridViewDD.Rows[index].Cells[5].Value.ToString();
+            comboBoxCL.SelectedValue = dataGridViewDD.Rows[index].Cells[6].Value.ToString();
             buttonEditDD.Enabled = true;
             buttonDeleDD.Enabled = true;
             buttonAddDD.Enabled = false;
@@ -270,11 +385,27 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonEditDD_Click(object sender, EventArgs e)
         {
-            string sql = "update DoDung set tenDD = N'" + textBoxTenDD.Text + "',soLuong = '" + numericUpDownSL.Value + "',donGia = '" + textBoxDonGia.Text + "',idLS = '" + comboBoxLDD.SelectedValue + "',idNSX = '" + comboBoxNSX.SelectedValue + "',idCL = '" + comboBoxCL.SelectedValue + "' where idDD ='" + textBoxMaDD.Text + "'";
+            if (textBoxTenDD.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên CHẤT LIỆU !!!");
+                return;
+            }
+            int Result;
+            bool isSuccess = int.TryParse(textBoxDonGia.Text, out Result);
+            if (isSuccess != true)
+            {
+                MessageBox.Show("Bạn phải nhập tên CHẤT LIỆU BẰNG SỐ !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn sửa " + textBoxTenDD.Text + " ?", "Sửa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+            string sql = "update DoDung set tenDD = N'" + textBoxTenDD.Text + "',soLuong = '" + numericUpDownSL.Value + "',donGia = '" + textBoxDonGia.Text + "',idLDD = '" + comboBoxLDD.SelectedValue + "',idNSX = '" + comboBoxNSX.SelectedValue + "',idCL = '" + comboBoxCL.SelectedValue + "' where idDD ='" + textBoxMaDD.Text + "'";
             fnc.actionData(sql);
             string sqlDD = "select * from DoDung";
             fnc.loadData(dataGridViewDD, sqlDD);
-            textBoxMaDD.Enabled = true;
             buttonEditDD.Enabled = false;
             buttonDeleDD.Enabled = false;
             buttonAddDD.Enabled = true;
@@ -283,27 +414,53 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonDeleDD_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn xóa " + textBoxTenDD.Text + " ?", "Xoá", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+            if (!fnc.checkDelete("select * from DoDung inner join HD_DD on HD_DD.idDD = '" + textBoxMaDD.Text + "'"))
+            {
+                MessageBox.Show("Bạn không thể xóa dữ liệu được liên kết với bảng khác !!!");
+                return;
+            }
             string sql = "delete from DoDung where idDD ='" + textBoxMaDD.Text + "'";
             fnc.actionData(sql);
             string sqlDD = "select * from DoDung";
             fnc.loadData(dataGridViewDD, sqlDD);
-            textBoxMaDD.Enabled = true;
             buttonEditDD.Enabled = false;
             buttonDeleDD.Enabled = false;
             buttonAddDD.Enabled = true;
             clearDD();
         }
+        private void buttonCancelDD_Click(object sender, EventArgs e)
+        {
+            clearDD();
+            buttonEditDD.Enabled = false;
+            buttonDeleDD.Enabled = false;
+            buttonAddDD.Enabled = true;
+        }
         private void clearDD()
         {
             textBoxMaDD.Text = fnc.ReturnUniqueValue();
             textBoxTenDD.Text = "";
-            numericUpDownSL.Value = 0;
+            numericUpDownSL.Value = 1;
             textBoxDonGia.Text = "";
         }
 
         // Khách hàng
         private void buttonAddKH_Click(object sender, EventArgs e)
         {
+            if (textBoxTenKH.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên khách hàng !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn thêm " + textBoxTenKH.Text + " ?", "Thêm", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "insert into KhachHang values('" + textBoxMaKH.Text + "',N'" + textBoxTenKH.Text + "',N'" + textBoxDiaChi.Text + "', '" + textBoxSDT.Text + "')";
             fnc.actionData(sql);
             string sqlKH = "select * from KhachHang";
@@ -314,11 +471,20 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonEditKH_Click(object sender, EventArgs e)
         {
+            if (textBoxTenKH.Text == "")
+            {
+                MessageBox.Show("Bạn phải nhập tên khách hàng !!!");
+                return;
+            }
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn sửa " + textBoxTenKH.Text + " ?", "Sửa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
             string sql = "update KhachHang set tenKH = N'" + textBoxTenKH.Text + "',diaChi = N'" + textBoxDiaChi.Text + "', sdt = '" + textBoxSDT.Text + "' where idKH = '" + textBoxMaKH.Text + "'";
             fnc.actionData(sql);
             string sqlKH = "select * from KhachHang";
             fnc.loadData(dataGridViewKhachHang, sqlKH);
-            textBoxMaKH.Enabled = true;
             buttonDeleKH.Enabled = false;
             buttonEditKH.Enabled = false;
             buttonAddKH.Enabled = true;
@@ -332,7 +498,6 @@ namespace QuanLyCuaHangDoDung
             textBoxTenKH.Text = dataGridViewKhachHang.Rows[index].Cells[1].Value.ToString();
             textBoxDiaChi.Text = dataGridViewKhachHang.Rows[index].Cells[2].Value.ToString();
             textBoxSDT.Text = dataGridViewKhachHang.Rows[index].Cells[3].Value.ToString();
-            textBoxMaKH.Enabled = false;
             buttonDeleKH.Enabled = true;
             buttonEditKH.Enabled = true;
             buttonAddKH.Enabled = false;
@@ -341,16 +506,33 @@ namespace QuanLyCuaHangDoDung
 
         private void buttonDeleKH_Click(object sender, EventArgs e)
         {
+            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn xóa " + textBoxTenKH.Text + " ?", "Xóa", MessageBoxButtons.YesNo);
+            if (dialogResult != DialogResult.Yes)
+            {
+                return;
+            }
+            if (!fnc.checkDelete("select * from KhachHang inner join HoaDon on HoaDon.idKH = '" + textBoxMaKH.Text + "'"))
+            {
+                MessageBox.Show("Bạn không thể xóa dữ liệu được liên kết với bảng khác !!!");
+                return;
+            }
             string sql = "delete from KhachHang where idKH = '" + textBoxMaKH.Text + "'";
             fnc.actionData(sql);
             string sqlKH = "select * from KhachHang";
             fnc.loadData(dataGridViewKhachHang, sqlKH);
-            textBoxMaKH.Enabled = true;
             buttonDeleKH.Enabled = false;
             buttonEditKH.Enabled = false;
             buttonAddKH.Enabled = true;
             clearKH();
 
+        }
+
+        private void buttonCancelKH_Click(object sender, EventArgs e)
+        {
+            buttonDeleKH.Enabled = false;
+            buttonEditKH.Enabled = false;
+            buttonAddKH.Enabled = true;
+            clearKH();
         }
         private void clearKH()
         {
@@ -360,165 +542,6 @@ namespace QuanLyCuaHangDoDung
             textBoxSDT.Text = "";
         }
 
-        // Thanh Toán
-        private void comboBoxKH_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sql = "select * from KhachHang where idKH='" + comboBoxKH.SelectedValue + "'";
-            SqlDataReader reader = fnc.getData(sql);
-            while(reader.Read())
-            {
-                textBoxHDTenKH.Text = reader.GetValue(1).ToString();
-                textBoxDCKH.Text = reader.GetValue(2).ToString();
-                textBoxSDTKH.Text = reader.GetValue(3).ToString();
-            }
-        }
-
-        private void buttonLocNSX_Click(object sender, EventArgs e)
-        {
-            comboBoxDD.Text = "";
-            string sql = "select * from DoDung where idNSX = '" + comboBoxHDNSX.SelectedValue + "'";
-            fnc.loadcombo(comboBoxDD,sql,"tenDD","idDD");
-        }
-
-        private void buttonLocLDD_Click(object sender, EventArgs e)
-        {
-            comboBoxDD.Text = "";
-            string sql = "select * from DoDung where idLDD = '" + comboBoxHDLDD.SelectedValue + "'";
-            fnc.loadcombo(comboBoxDD, sql, "tenDD", "idDD");
-        }
-
-        private void buttonLocCL_Click(object sender, EventArgs e)
-        {
-            comboBoxDD.Text = "";
-            string sql = "select * from DoDung where idCL = '" + comboBoxHDCL.SelectedValue + "'";
-            fnc.loadcombo(comboBoxDD, sql, "tenDD", "idDD");
-        }
-
-        private void buttonLocAll_Click(object sender, EventArgs e)
-        {
-            comboBoxDD.Text = "";
-            string sql = "select * from DoDung where idCL = '" + comboBoxHDCL.SelectedValue + "' and idLDD = '" + comboBoxHDLDD.SelectedValue + "' and idNSX = '" + comboBoxHDNSX.SelectedValue + "'";
-            fnc.loadcombo(comboBoxDD, sql, "tenDD", "idDD");
-        }
-
-        private void comboBoxDD_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sql = "select soLuong,donGia from DoDung where idDD='" + comboBoxDD.SelectedValue + "'";
-            SqlDataReader reader = fnc.getData(sql);
-            while (reader.Read())
-            {
-                numericUpDownHDSL.Maximum = Convert.ToInt32(reader.GetValue(0).ToString());
-                textBoxDG.Text = reader.GetValue(1).ToString();
-            }
-        }
-
-        private void buttonAddCart_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show(comboBoxDD.SelectedText.ToString());
-            foreach (DataGridViewRow row in dataGridViewCart.Rows)
-            { 
-                if(comboBoxDD.SelectedValue == row.Cells["idDD"].Value)
-                {
-                    row.Cells["soLuong"].Value = numericUpDownHDSL.Value;
-                   MessageBox.Show(dataGridViewCart.EndEdit().ToString());
-                    return;
-                }
-            }
-            dataGridViewCart.Rows.Add(comboBoxDD.SelectedValue, comboBoxDD.Text , numericUpDownHDSL.Value, textBoxDG.Text);
-        }
-
-        int total = 0;
-
-        private void dataGridViewCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            foreach(DataGridViewRow row in dataGridViewCart.Rows)
-            {
-                total += Convert.ToInt32(row.Cells["soLuong"].Value) * Convert.ToInt32(row.Cells["dg"].Value);
-            }
-            textBoxTT.Text = total.ToString();
-        }
-
-        private void buttonTT_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Bạn chắc chắn thanh toán ?", "Thanh Toán", MessageBoxButtons.YesNo);
-            if (dialogResult != DialogResult.Yes)
-            {
-                return;
-            }
-            string sql = "insert into HoaDon values('" + textBoxMaHD.Text + "','" + comboBoxKH.SelectedValue + "','" + DateTime.Today.Date + "','" + textBoxTT.Text + "')";
-            fnc.actionData(sql);
-            foreach (DataGridViewRow row in dataGridViewCart.Rows)
-            {
-                string sqlInsert = "insert into HD_DD values('" + textBoxMaHD.Text + "','" + row.Cells["idDD"].Value.ToString() + "','" + row.Cells["soLuong"].Value + "')";
-                fnc.actionData(sqlInsert);
-            }
-            dataGridViewCart.Rows.Clear();
-            clearTT();
-        }
-        private void clearTT()
-        {
-            textBoxMaHD.Text = "";
-            textBoxHDTenKH.Text = "";
-            textBoxSDTKH.Text = "";
-            textBoxDCKH.Text = "";
-            textBoxTT.Text = "";
-        }
-
-        private void buttonThongKe_Click(object sender, EventArgs e)
-        {
-            string sql;
-            if(radioButtonNSX.Checked)
-            {
-                sql = "select TK.idNSX, NhaSanXuat.tenNSX, TK.total_sl from (select NhaSanXuat.idNSX,sum(HD_DD.soLuong) as total_sl from HD_DD, DoDung, NhaSanXuat where HD_DD.idDD = DoDung.idDD and DoDung.idNSX = NhaSanXuat.idNSX group by NhaSanXuat.idNSX) as TK inner join NhaSanXuat on NhaSanXuat.idNSX = TK.idNSX order by TK.total_sl DESC;";
-                fnc.loadData(dataGridViewTK, sql);
-            }
-            if(radioButtonLDD.Checked)
-            {
-                sql = "select TK.idLDD, LoaiDoDung.tenLDD, TK.total_sl from (select LoaiDoDung.idLDD,sum(HD_DD.soLuong) as total_sl from HD_DD, DoDung, LoaiDoDung where HD_DD.idDD = DoDung.idDD and DoDung.idLDD = LoaiDoDung.idLDD group by LoaiDoDung.idLDD) as TK inner join LoaiDoDung on LoaiDoDung.idLDD = TK.idLDD order by TK.total_sl DESC;";
-                fnc.loadData(dataGridViewTK, sql);
-            }
-            if(radioButtonDD.Checked)
-            {
-                sql = "select TK.idDD,DoDung.tenDD,TK.total_sl from (select DoDung.idDD, sum(HD_DD.soLuong) as total_sl from HD_DD, DoDung where HD_DD.idDD = DoDung.idDD group by DoDung.idDD) as TK inner join DoDung on TK.idDD = DoDung.idDD order by TK.total_sl desc;";
-                fnc.loadData(dataGridViewTK, sql);
-            }
-            if(radioButtonKH.Checked)
-            {
-                sql = "select TK.idKH,KhachHang.tenKH,TK.total_sl from (select KhachHang.idKH, sum(HD_DD.soLuong) as total_sl from HD_DD, KhachHang, HoaDon where HD_DD.idHD = HoaDon.idHD and HoaDon.idKH = KhachHang.idKH group by KhachHang.idKH) as TK inner join KhachHang on TK.idKH = KhachHang.idKH order by TK.total_sl desc;";
-                fnc.loadData(dataGridViewTK, sql);
-            }
-        }
-
-        
-        Bitmap memoryImage;
-
-        private void CaptureScreen()
-        {
-            Graphics myGraphics = this.CreateGraphics();
-            Size s = this.Size;
-            memoryImage = new Bitmap(s.Width, s.Height, myGraphics);
-            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-            memoryGraphics.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, s);
-        }
-
-        private void buttonSearchByKH_Click(object sender, EventArgs e)
-        {
-            string sql = "select * from HoaDon where idKH ='"+comboBoxSearchByKH.SelectedValue+"'";
-            fnc.loadData(dataGridViewHD, sql);
-        }
-
-        private void dataGridViewHD_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int index = dataGridViewHD.CurrentRow.Index;
-            string Ma = dataGridViewHD.Rows[index].Cells[1].Value.ToString();
-            string sql = "select DoDung.tenDD , HD_DD.soLuong from HoaDon, HD_DD, DoDung where HoaDon.idHD = HD_DD.idHD and HoaDon.idKH = '"+Ma+"' and HD_DD.idDD = DoDung.idDD ";
-            fnc.loadData(dataGridViewCTHD, sql);
-        }
-
-        private void buttonSearchByDate_Click(object sender, EventArgs e)
-        {
-            string sql = "select * from HoaDon where day(ngayHD) ='" + dateTimePickerNgay.Value.Day + "' and month(ngayHD) ='" + dateTimePickerNgay.Value.Month + "' and year(ngayHD) ='" + dateTimePickerNgay.Value.Year + "'";
-            fnc.loadData(dataGridViewHD, sql);
-        }
+       
     }
 }

@@ -51,7 +51,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxMaNSX = new System.Windows.Forms.TextBox();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPageCL = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridViewCL = new System.Windows.Forms.DataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -62,7 +62,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxMaCL = new System.Windows.Forms.TextBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPageDD = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.dataGridViewDD = new System.Windows.Forms.DataGridView();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -85,7 +85,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxMaDD = new System.Windows.Forms.TextBox();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPageBH = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.buttonDeleCart = new System.Windows.Forms.Button();
             this.buttonAddCart = new System.Windows.Forms.Button();
@@ -124,10 +124,14 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.textBoxMaHD = new System.Windows.Forms.TextBox();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPageTK = new System.Windows.Forms.TabPage();
             this.dataGridViewTK = new System.Windows.Forms.DataGridView();
             this.buttonThongKe = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.radioButtonKH = new System.Windows.Forms.RadioButton();
+            this.radioButtonLDD = new System.Windows.Forms.RadioButton();
+            this.radioButtonNSX = new System.Windows.Forms.RadioButton();
+            this.radioButtonDD = new System.Windows.Forms.RadioButton();
+            this.tabPageKH = new System.Windows.Forms.TabPage();
             this.dataGridViewKhachHang = new System.Windows.Forms.DataGridView();
             this.panel11 = new System.Windows.Forms.Panel();
             this.textBoxSDT = new System.Windows.Forms.TextBox();
@@ -141,10 +145,17 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxMaKH = new System.Windows.Forms.TextBox();
-            this.radioButtonNSX = new System.Windows.Forms.RadioButton();
-            this.radioButtonDD = new System.Windows.Forms.RadioButton();
-            this.radioButtonLDD = new System.Windows.Forms.RadioButton();
-            this.radioButtonKH = new System.Windows.Forms.RadioButton();
+            this.tabPageTimHD = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewCTHD = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewHD = new System.Windows.Forms.DataGridView();
+            this.dateTimePickerNgay = new System.Windows.Forms.DateTimePicker();
+            this.buttonSearchByDate = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.buttonSearchByKH = new System.Windows.Forms.Button();
+            this.comboBoxSearchByKH = new System.Windows.Forms.ComboBox();
+            this.label30 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageLDD.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -154,38 +165,43 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNSX)).BeginInit();
             this.panel4.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            this.tabPageCL.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCL)).BeginInit();
             this.panel6.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tabPageDD.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDD)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSL)).BeginInit();
-            this.tabPage5.SuspendLayout();
+            this.tabPageBH.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHDSL)).BeginInit();
             this.groupBox4.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tabPageTK.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTK)).BeginInit();
-            this.tabPage7.SuspendLayout();
+            this.tabPageKH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKhachHang)).BeginInit();
             this.panel11.SuspendLayout();
+            this.tabPageTimHD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCTHD)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHD)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPageLDD);
             this.tabControl1.Controls.Add(this.tabPageNSX);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPageCL);
+            this.tabControl1.Controls.Add(this.tabPageDD);
+            this.tabControl1.Controls.Add(this.tabPageBH);
+            this.tabControl1.Controls.Add(this.tabPageTK);
+            this.tabControl1.Controls.Add(this.tabPageKH);
+            this.tabControl1.Controls.Add(this.tabPageTimHD);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -427,17 +443,17 @@
             this.textBoxMaNSX.Size = new System.Drawing.Size(301, 20);
             this.textBoxMaNSX.TabIndex = 0;
             // 
-            // tabPage3
+            // tabPageCL
             // 
-            this.tabPage3.Controls.Add(this.panel5);
-            this.tabPage3.Controls.Add(this.panel6);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(792, 424);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Chất liệu";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPageCL.Controls.Add(this.panel5);
+            this.tabPageCL.Controls.Add(this.panel6);
+            this.tabPageCL.Location = new System.Drawing.Point(4, 22);
+            this.tabPageCL.Name = "tabPageCL";
+            this.tabPageCL.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCL.Size = new System.Drawing.Size(792, 424);
+            this.tabPageCL.TabIndex = 2;
+            this.tabPageCL.Text = "Chất liệu";
+            this.tabPageCL.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -544,17 +560,17 @@
             this.textBoxMaCL.Size = new System.Drawing.Size(137, 20);
             this.textBoxMaCL.TabIndex = 0;
             // 
-            // tabPage4
+            // tabPageDD
             // 
-            this.tabPage4.Controls.Add(this.panel7);
-            this.tabPage4.Controls.Add(this.panel8);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 424);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Đồ Dùng";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPageDD.Controls.Add(this.panel7);
+            this.tabPageDD.Controls.Add(this.panel8);
+            this.tabPageDD.Location = new System.Drawing.Point(4, 22);
+            this.tabPageDD.Name = "tabPageDD";
+            this.tabPageDD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDD.Size = new System.Drawing.Size(792, 424);
+            this.tabPageDD.TabIndex = 3;
+            this.tabPageDD.Text = "Đồ Dùng";
+            this.tabPageDD.UseVisualStyleBackColor = true;
             // 
             // panel7
             // 
@@ -765,17 +781,17 @@
             this.textBoxMaDD.Size = new System.Drawing.Size(121, 20);
             this.textBoxMaDD.TabIndex = 7;
             // 
-            // tabPage5
+            // tabPageBH
             // 
-            this.tabPage5.Controls.Add(this.groupBox3);
-            this.tabPage5.Controls.Add(this.groupBox4);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(792, 424);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Bán hàng";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabPageBH.Controls.Add(this.groupBox3);
+            this.tabPageBH.Controls.Add(this.groupBox4);
+            this.tabPageBH.Location = new System.Drawing.Point(4, 22);
+            this.tabPageBH.Name = "tabPageBH";
+            this.tabPageBH.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageBH.Size = new System.Drawing.Size(792, 424);
+            this.tabPageBH.TabIndex = 4;
+            this.tabPageBH.Text = "Bán hàng";
+            this.tabPageBH.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -1047,7 +1063,7 @@
             // buttonTT
             // 
             this.buttonTT.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonTT.Location = new System.Drawing.Point(721, 31);
+            this.buttonTT.Location = new System.Drawing.Point(722, 30);
             this.buttonTT.Name = "buttonTT";
             this.buttonTT.Size = new System.Drawing.Size(59, 49);
             this.buttonTT.TabIndex = 26;
@@ -1170,21 +1186,21 @@
             this.textBoxMaHD.Size = new System.Drawing.Size(104, 20);
             this.textBoxMaHD.TabIndex = 13;
             // 
-            // tabPage6
+            // tabPageTK
             // 
-            this.tabPage6.Controls.Add(this.dataGridViewTK);
-            this.tabPage6.Controls.Add(this.buttonThongKe);
-            this.tabPage6.Controls.Add(this.radioButtonKH);
-            this.tabPage6.Controls.Add(this.radioButtonLDD);
-            this.tabPage6.Controls.Add(this.radioButtonNSX);
-            this.tabPage6.Controls.Add(this.radioButtonDD);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(792, 424);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Thống kê";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPageTK.Controls.Add(this.dataGridViewTK);
+            this.tabPageTK.Controls.Add(this.buttonThongKe);
+            this.tabPageTK.Controls.Add(this.radioButtonKH);
+            this.tabPageTK.Controls.Add(this.radioButtonLDD);
+            this.tabPageTK.Controls.Add(this.radioButtonNSX);
+            this.tabPageTK.Controls.Add(this.radioButtonDD);
+            this.tabPageTK.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTK.Name = "tabPageTK";
+            this.tabPageTK.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTK.Size = new System.Drawing.Size(792, 424);
+            this.tabPageTK.TabIndex = 5;
+            this.tabPageTK.Text = "Thống kê";
+            this.tabPageTK.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTK
             // 
@@ -1199,7 +1215,7 @@
             // buttonThongKe
             // 
             this.buttonThongKe.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonThongKe.Location = new System.Drawing.Point(352, 75);
+            this.buttonThongKe.Location = new System.Drawing.Point(345, 87);
             this.buttonThongKe.Name = "buttonThongKe";
             this.buttonThongKe.Size = new System.Drawing.Size(83, 35);
             this.buttonThongKe.TabIndex = 57;
@@ -1207,17 +1223,69 @@
             this.buttonThongKe.UseVisualStyleBackColor = true;
             this.buttonThongKe.Click += new System.EventHandler(this.buttonThongKe_Click);
             // 
-            // tabPage7
+            // radioButtonKH
             // 
-            this.tabPage7.Controls.Add(this.dataGridViewKhachHang);
-            this.tabPage7.Controls.Add(this.panel11);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(792, 424);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Khách Hàng";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.radioButtonKH.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButtonKH.AutoSize = true;
+            this.radioButtonKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonKH.Location = new System.Drawing.Point(449, 58);
+            this.radioButtonKH.Name = "radioButtonKH";
+            this.radioButtonKH.Size = new System.Drawing.Size(115, 24);
+            this.radioButtonKH.TabIndex = 56;
+            this.radioButtonKH.TabStop = true;
+            this.radioButtonKH.Text = "Khách Hàng";
+            this.radioButtonKH.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLDD
+            // 
+            this.radioButtonLDD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButtonLDD.AutoSize = true;
+            this.radioButtonLDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonLDD.Location = new System.Drawing.Point(219, 58);
+            this.radioButtonLDD.Name = "radioButtonLDD";
+            this.radioButtonLDD.Size = new System.Drawing.Size(125, 24);
+            this.radioButtonLDD.TabIndex = 55;
+            this.radioButtonLDD.TabStop = true;
+            this.radioButtonLDD.Text = "Loại Đồ Dùng";
+            this.radioButtonLDD.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNSX
+            // 
+            this.radioButtonNSX.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButtonNSX.AutoSize = true;
+            this.radioButtonNSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonNSX.Location = new System.Drawing.Point(219, 28);
+            this.radioButtonNSX.Name = "radioButtonNSX";
+            this.radioButtonNSX.Size = new System.Drawing.Size(127, 24);
+            this.radioButtonNSX.TabIndex = 53;
+            this.radioButtonNSX.TabStop = true;
+            this.radioButtonNSX.Text = "Nhà Sản Xuất";
+            this.radioButtonNSX.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonDD
+            // 
+            this.radioButtonDD.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.radioButtonDD.AutoSize = true;
+            this.radioButtonDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButtonDD.Location = new System.Drawing.Point(449, 28);
+            this.radioButtonDD.Name = "radioButtonDD";
+            this.radioButtonDD.Size = new System.Drawing.Size(91, 24);
+            this.radioButtonDD.TabIndex = 54;
+            this.radioButtonDD.TabStop = true;
+            this.radioButtonDD.Text = "Đồ Dùng";
+            this.radioButtonDD.UseVisualStyleBackColor = true;
+            // 
+            // tabPageKH
+            // 
+            this.tabPageKH.Controls.Add(this.dataGridViewKhachHang);
+            this.tabPageKH.Controls.Add(this.panel11);
+            this.tabPageKH.Location = new System.Drawing.Point(4, 22);
+            this.tabPageKH.Name = "tabPageKH";
+            this.tabPageKH.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageKH.Size = new System.Drawing.Size(792, 424);
+            this.tabPageKH.TabIndex = 6;
+            this.tabPageKH.Text = "Khách Hàng";
+            this.tabPageKH.UseVisualStyleBackColor = true;
             // 
             // dataGridViewKhachHang
             // 
@@ -1355,57 +1423,119 @@
             this.textBoxMaKH.Size = new System.Drawing.Size(137, 20);
             this.textBoxMaKH.TabIndex = 11;
             // 
-            // radioButtonNSX
+            // tabPageTimHD
             // 
-            this.radioButtonNSX.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButtonNSX.AutoSize = true;
-            this.radioButtonNSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonNSX.Location = new System.Drawing.Point(219, 28);
-            this.radioButtonNSX.Name = "radioButtonNSX";
-            this.radioButtonNSX.Size = new System.Drawing.Size(127, 24);
-            this.radioButtonNSX.TabIndex = 53;
-            this.radioButtonNSX.TabStop = true;
-            this.radioButtonNSX.Text = "Nhà Sản Xuất";
-            this.radioButtonNSX.UseVisualStyleBackColor = true;
+            this.tabPageTimHD.Controls.Add(this.panel1);
+            this.tabPageTimHD.Controls.Add(this.dataGridViewCTHD);
+            this.tabPageTimHD.Controls.Add(this.groupBox1);
+            this.tabPageTimHD.Location = new System.Drawing.Point(4, 22);
+            this.tabPageTimHD.Name = "tabPageTimHD";
+            this.tabPageTimHD.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageTimHD.Size = new System.Drawing.Size(792, 424);
+            this.tabPageTimHD.TabIndex = 7;
+            this.tabPageTimHD.Text = "Tìm Kiếm Hóa Đơn";
+            this.tabPageTimHD.UseVisualStyleBackColor = true;
             // 
-            // radioButtonDD
+            // panel1
             // 
-            this.radioButtonDD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButtonDD.AutoSize = true;
-            this.radioButtonDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonDD.Location = new System.Drawing.Point(449, 28);
-            this.radioButtonDD.Name = "radioButtonDD";
-            this.radioButtonDD.Size = new System.Drawing.Size(91, 24);
-            this.radioButtonDD.TabIndex = 54;
-            this.radioButtonDD.TabStop = true;
-            this.radioButtonDD.Text = "Đồ Dùng";
-            this.radioButtonDD.UseVisualStyleBackColor = true;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(373, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(15, 418);
+            this.panel1.TabIndex = 2;
             // 
-            // radioButtonLDD
+            // dataGridViewCTHD
             // 
-            this.radioButtonLDD.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButtonLDD.AutoSize = true;
-            this.radioButtonLDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonLDD.Location = new System.Drawing.Point(219, 58);
-            this.radioButtonLDD.Name = "radioButtonLDD";
-            this.radioButtonLDD.Size = new System.Drawing.Size(125, 24);
-            this.radioButtonLDD.TabIndex = 55;
-            this.radioButtonLDD.TabStop = true;
-            this.radioButtonLDD.Text = "Loại Đồ Dùng";
-            this.radioButtonLDD.UseVisualStyleBackColor = true;
+            this.dataGridViewCTHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCTHD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCTHD.Location = new System.Drawing.Point(373, 3);
+            this.dataGridViewCTHD.Name = "dataGridViewCTHD";
+            this.dataGridViewCTHD.Size = new System.Drawing.Size(416, 418);
+            this.dataGridViewCTHD.TabIndex = 1;
             // 
-            // radioButtonKH
+            // groupBox1
             // 
-            this.radioButtonKH.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.radioButtonKH.AutoSize = true;
-            this.radioButtonKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonKH.Location = new System.Drawing.Point(449, 58);
-            this.radioButtonKH.Name = "radioButtonKH";
-            this.radioButtonKH.Size = new System.Drawing.Size(115, 24);
-            this.radioButtonKH.TabIndex = 56;
-            this.radioButtonKH.TabStop = true;
-            this.radioButtonKH.Text = "Khách Hàng";
-            this.radioButtonKH.UseVisualStyleBackColor = true;
+            this.groupBox1.Controls.Add(this.dataGridViewHD);
+            this.groupBox1.Controls.Add(this.dateTimePickerNgay);
+            this.groupBox1.Controls.Add(this.buttonSearchByDate);
+            this.groupBox1.Controls.Add(this.label31);
+            this.groupBox1.Controls.Add(this.buttonSearchByKH);
+            this.groupBox1.Controls.Add(this.comboBoxSearchByKH);
+            this.groupBox1.Controls.Add(this.label30);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(370, 418);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Hóa Đơn";
+            // 
+            // dataGridViewHD
+            // 
+            this.dataGridViewHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHD.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridViewHD.Location = new System.Drawing.Point(3, 134);
+            this.dataGridViewHD.Name = "dataGridViewHD";
+            this.dataGridViewHD.Size = new System.Drawing.Size(364, 281);
+            this.dataGridViewHD.TabIndex = 25;
+            this.dataGridViewHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewHD_CellClick);
+            // 
+            // dateTimePickerNgay
+            // 
+            this.dateTimePickerNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerNgay.Location = new System.Drawing.Point(98, 79);
+            this.dateTimePickerNgay.Name = "dateTimePickerNgay";
+            this.dateTimePickerNgay.Size = new System.Drawing.Size(104, 20);
+            this.dateTimePickerNgay.TabIndex = 24;
+            // 
+            // buttonSearchByDate
+            // 
+            this.buttonSearchByDate.Location = new System.Drawing.Point(208, 79);
+            this.buttonSearchByDate.Name = "buttonSearchByDate";
+            this.buttonSearchByDate.Size = new System.Drawing.Size(138, 23);
+            this.buttonSearchByDate.TabIndex = 23;
+            this.buttonSearchByDate.Text = "Tìm kiếm theo ngày bán";
+            this.buttonSearchByDate.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(24, 83);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(53, 13);
+            this.label31.TabIndex = 21;
+            this.label31.Text = "Ngày bán";
+            // 
+            // buttonSearchByKH
+            // 
+            this.buttonSearchByKH.Location = new System.Drawing.Point(208, 38);
+            this.buttonSearchByKH.Name = "buttonSearchByKH";
+            this.buttonSearchByKH.Size = new System.Drawing.Size(138, 23);
+            this.buttonSearchByKH.TabIndex = 20;
+            this.buttonSearchByKH.Text = "Tìm kiếm theo khách hàng";
+            this.buttonSearchByKH.UseVisualStyleBackColor = true;
+            this.buttonSearchByKH.Click += new System.EventHandler(this.buttonSearchByKH_Click);
+            // 
+            // comboBoxSearchByKH
+            // 
+            this.comboBoxSearchByKH.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxSearchByKH.FormattingEnabled = true;
+            this.comboBoxSearchByKH.Location = new System.Drawing.Point(98, 40);
+            this.comboBoxSearchByKH.Name = "comboBoxSearchByKH";
+            this.comboBoxSearchByKH.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxSearchByKH.TabIndex = 19;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(24, 42);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(67, 13);
+            this.label30.TabIndex = 18;
+            this.label30.Text = "Khách Hàng";
             // 
             // Main
             // 
@@ -1427,12 +1557,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNSX)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
+            this.tabPageCL.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCL)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
+            this.tabPageDD.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDD)).EndInit();
             this.panel8.ResumeLayout(false);
@@ -1441,19 +1571,25 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownSL)).EndInit();
-            this.tabPage5.ResumeLayout(false);
+            this.tabPageBH.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHDSL)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
+            this.tabPageTK.ResumeLayout(false);
+            this.tabPageTK.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTK)).EndInit();
-            this.tabPage7.ResumeLayout(false);
+            this.tabPageKH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKhachHang)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            this.tabPageTimHD.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCTHD)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1483,7 +1619,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxMaNSX;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPageCL;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.DataGridView dataGridViewCL;
         private System.Windows.Forms.Panel panel6;
@@ -1494,7 +1630,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxMaCL;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPageDD;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView dataGridViewDD;
         private System.Windows.Forms.Panel panel8;
@@ -1517,7 +1653,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxMaDD;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPageBH;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.NumericUpDown numericUpDownHDSL;
         private System.Windows.Forms.Label label27;
@@ -1541,7 +1677,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox textBoxMaHD;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPageKH;
         private System.Windows.Forms.DataGridView dataGridViewKhachHang;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox textBoxSDT;
@@ -1570,13 +1706,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenDD;
         private System.Windows.Forms.DataGridViewTextBoxColumn soLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn dg;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPageTK;
         private System.Windows.Forms.RadioButton radioButtonNSX;
         private System.Windows.Forms.RadioButton radioButtonDD;
         private System.Windows.Forms.RadioButton radioButtonLDD;
         private System.Windows.Forms.RadioButton radioButtonKH;
         private System.Windows.Forms.Button buttonThongKe;
         private System.Windows.Forms.DataGridView dataGridViewTK;
+        private System.Windows.Forms.TabPage tabPageTimHD;
+        private System.Windows.Forms.DataGridView dataGridViewCTHD;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerNgay;
+        private System.Windows.Forms.Button buttonSearchByDate;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Button buttonSearchByKH;
+        private System.Windows.Forms.ComboBox comboBoxSearchByKH;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.DataGridView dataGridViewHD;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

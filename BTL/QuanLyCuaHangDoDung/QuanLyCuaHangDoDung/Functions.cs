@@ -66,5 +66,20 @@ namespace QuanLyCuaHangDoDung
             SqlDataReader reader = data.ExecuteReader();
             return reader;
         }
+        public bool checkDelete(string sqlString)
+        {
+            SqlConnection cn = connect();
+            SqlCommand data = new SqlCommand(sqlString, cn);
+            SqlDataAdapter adapt = new SqlDataAdapter(data);
+            DataSet ds = new DataSet();
+            adapt.Fill(ds);
+            cn.Close();
+            int count = ds.Tables[0].Rows.Count;
+            if (count != 0)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
