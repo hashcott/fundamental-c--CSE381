@@ -1,0 +1,10 @@
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.csprojAssemblyReference.cache
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.Main.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.Properties.Resources.resources
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.csproj.GenerateResource.cache
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.csproj.CoreCompileInputs.cache
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\bin\Debug\QuanLyCuaHangDoDung.exe.config
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\bin\Debug\QuanLyCuaHangDoDung.exe
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\bin\Debug\QuanLyCuaHangDoDung.pdb
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.exe
+C:\Users\NguyenDucHanh\source\repos\QuanLyCuaHangDoDung\QuanLyCuaHangDoDung\obj\Debug\QuanLyCuaHangDoDung.pdb

@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.IO;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Data;
 
-namespace QuanLyNhanSu
+namespace QuanLyCuaHangDoDung
 {
     class Functions
     {
@@ -22,13 +20,12 @@ namespace QuanLyNhanSu
         public SqlConnection connect()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-              "Data Source= DESKTOP-EL5E8KN\\SQLEXPRESS;" +
-              "Initial Catalog=QuanLyNhanSu;" +
-              "Integrated Security=SSPI;";
-            try {
+            conn.ConnectionString = "Data Source=DESKTOP-EL5E8KN\\SQLEXPRESS;Initial Catalog=QuanLyCuaHangBanDo;Integrated Security=True";
+            try
+            {
                 conn.Open();
-            } catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Không thể kết nối");
             }
@@ -37,7 +34,7 @@ namespace QuanLyNhanSu
         public void loadData(DataGridView dt, string sqlString)
         {
             SqlConnection cn = connect();
-            SqlDataAdapter data = new SqlDataAdapter(sqlString,cn);
+            SqlDataAdapter data = new SqlDataAdapter(sqlString, cn);
             DataTable tb = new DataTable();
             data.Fill(tb);
             dt.DataSource = tb;
@@ -45,7 +42,7 @@ namespace QuanLyNhanSu
         }
         public void actionData(string sqlEx)
         {
-          
+
             SqlConnection cn = connect();
             SqlCommand data = new SqlCommand(sqlEx, cn);
             data.ExecuteNonQuery();
@@ -60,6 +57,14 @@ namespace QuanLyNhanSu
             cb.DataSource = tb;
             cb.DisplayMember = display;
             cb.ValueMember = value;
+        }
+
+        public SqlDataReader getData(string sqlString)
+        {
+            SqlConnection cn = connect();
+            SqlCommand data = new SqlCommand(sqlString, cn);
+            SqlDataReader reader = data.ExecuteReader();
+            return reader;
         }
     }
 }
